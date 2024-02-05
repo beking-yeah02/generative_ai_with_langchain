@@ -27,7 +27,7 @@ set_environment()
 
 # Setup LLM and QA chain; set temperature low to keep hallucinations in check
 LLM = ChatOpenAI(
-    model_name="gpt-3.5-turbo", temperature=0, streaming=True
+    model_name="gpt-3.5-turbo", temperature=0, streaming=True, verbose=True
 )
 
 
@@ -41,7 +41,7 @@ def configure_retriever(
     splits = text_splitter.split_documents(docs)
 
     # Create embeddings and store in vectordb:
-    embeddings = OpenAIEmbeddings()
+    embeddings = OpenAIEmbeddings(show_progress_bar=True)
     # alternatively: HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     # Create vectordb with single call to embedding model for texts:
     vectordb = DocArrayInMemorySearch.from_documents(splits, embeddings)

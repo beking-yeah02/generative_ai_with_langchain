@@ -67,7 +67,7 @@ ranking_chain = LLMChain(
 tot_chain = SequentialChain(
    chains=[solutions_chain, evalutation_chain, reasoning_chain, ranking_chain],
    input_variables=["problem", "factors", "num_solutions"],
-   output_variables=["ranked_solutions"]
+   output_variables=["ranked_solutions"], verbose=True
 )
 print(tot_chain.run(
    problem="Prompt engineering",

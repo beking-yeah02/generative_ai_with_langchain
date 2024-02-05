@@ -29,9 +29,9 @@ todo_llm = LLMChain(
 software_prompt = PromptTemplate.from_template(DEV_PROMPT)
 # careful: if you have the wrong model spec, you might not get any code!
 software_llm = LLMChain(
-    llm=OpenAI(
+    llm=OpenAI(model="gpt-3.5-turbo-instruct", 
         temperature=0,
-        max_tokens=4000
+        max_tokens=3800
     ),
     prompt=software_prompt
 )
@@ -93,7 +93,7 @@ Task: {input}
 #     suffix=SUFFIX, input_variables=["input", "agent_scratchpad", "chat_history"]
 # )
 
-llm = OpenAI()
+llm = OpenAI(model="gpt-3.5-turbo-instruct")
 planner = load_chat_planner(llm)
 executor = load_agent_executor(
     llm,

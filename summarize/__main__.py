@@ -21,6 +21,8 @@ from summarize import prompts
 set_environment()
 
 CHAT = ChatOpenAI(
+    # base_url="https://api.chatgptapi.org.cn/v1",
+    openai_api_base="https://api.chatgptid.net/v1",
     temperature=0.7,
 )
 logging.basicConfig(encoding="utf-8", level=logging.INFO)
@@ -118,6 +120,6 @@ def create_pdf_summaries(directory: str):
 
 
 if __name__ == "__main__":
-    directory = "/Users/ben/Downloads/"
+    directory = "/workspaces/generative_ai_with_langchain/pdfs"
     create_pdf_summaries(directory=directory)
 

@@ -32,7 +32,7 @@ tool_names = st.multiselect(
         "wikipedia", "python_repl", "pal-math",
         "llm-math"
     ],
-    ["ddg-search", "wolfram-alpha", "wikipedia"])
+    ["ddg-search", "arxiv", "wikipedia"])
 if st.sidebar.button("Clear message history"):
     MEMORY.chat_memory.clear()
 
